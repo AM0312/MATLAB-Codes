@@ -1,29 +1,22 @@
 a=input("Enter the coefficient matrix");
 b=input("Enter the constant matrix(column form)");
 w=input("Enter the value of relaxation parameter");
-tol=input("Enter the value of tolerance");
 error=10;
-c=length(a);
-x=(1:c);
-e=(1:c);
-for i=1:c
-    x(i)=input("Initial value of x");
-end
-p=x;
-k=1;
-while error>=tol
-    for i=1:c
-        sum=b(i);
-        for j=1:c
+n=length(a);
+x=zeros(n);
+max_error=input("Enter tolerance");
+while (error>max_error)
+    old=x;
+    for i=1:n
+        sum=0;
+        for j=1:n
             if i~=j
-                sum=sum-a(i,j)*x(j);
+                sum=sum+a(i,j)*x(j);
             end
         end
-        x(i)=sum*w/a(i,i)+(1-w)*p(i);
-        e(i)=abs(x(i)-p(i));
-        p(i)=x(i);
-        error=max(e(i:c));
+        x(i)=w*((b(i)-sum)/a(i,i))+(1-w)*x(i);
     end
-    k=k+1;
+    for i=1:n
+        error=max(0,abs(x(i)-old(i)));
+    end
 end
-disp(x(1:c))
