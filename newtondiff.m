@@ -1,7 +1,7 @@
 x=input("Enter values of x:");
 y=input("Enter function values:");
 x0=input('Now enter a point at which to evaluate the polynomial, x = ');
-n=length5(x);
+n=length(x);
 D=ones(n+1,n+1);
 for i=1:n
    D(i,1)=y(i);

@@ -16,5 +16,6 @@ while (error>max_error)
         end
         x(i)=w*((b(i)-sum)/a(i,i))+(1-w)*x(i);
     end
-        error=max(0,abs(x(:)-old(:)));
+    error=max(0,abs(x(:)-old(:)));
 end
+disp(x);
