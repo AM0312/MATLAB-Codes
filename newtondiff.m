@@ -29,8 +29,7 @@
   %  fx0=fx0*(x0-x(i))+D(i,i);
  %end
  %disp(fx0);
-
- a=input("Enter all the values of x:  ");
+a=input("Enter all the values of x:  ");
 b=input("Enter all the values of f(x):  ");
 x=input("Enter the value of x where you want to find the value of function");
 diff=a(2)-a(1);
