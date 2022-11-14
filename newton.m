@@ -1,0 +1,15 @@
+f=@(x)(x^2-5*x+6);
+g=@(x)(2*x-5);
+x=1;
+error=2;
+i=0;
+while(i<error)
+    a=x-(f(x)/g(x));
+    if(error>10^-4)
+        x=a;
+        error=abs(x-a);
+    else 
+        i=i+1;
+    end
+end
+disp(x);

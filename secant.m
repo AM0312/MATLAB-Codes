@@ -1,0 +1,11 @@
+f=@(x)(exp(-x)*(x^2+5*x+2)+1);
+a=-2;
+b=-1;
+error=1;
+while(error>10^-4)
+    c=b-(f(b)*(b-a)/(f(b)-f(a)));
+    error=abs(b-a);
+    a=b;
+    b=c;
+end
+disp(a);
