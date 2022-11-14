@@ -1,23 +1,14 @@
-a=input("Enter the matrix");
-x=input("Enter the intial guess in form of coloumn matrix");
-tol=input("Enter the tolerance");
-b=length(a);
+a=input("Enter matrix:");
+x=input("Enter initial eigen value guesses:");
+tol=input("Enter tolerance:");
+n=length(a);
 q=0;
-error=12;
-while error>=tol
+error=10;
+while error>tol
     y=a*x;
-    for i=1:b-1
-        if(y(i)>=y(i+1))
-            k=y(i);
-        else
-            k=y(i+1);
-        end
-    end
-    for i=1:b
-        x(i)=y(i)/k;
-    end
+    k=max(y(:));
+    x(:)=y(:)/k;
     error=abs(k-q);
     q=k;
 end
-disp(k)
-disp(y(1:b))
+disp(k);

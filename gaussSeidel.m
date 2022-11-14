@@ -1,10 +1,7 @@
 a=input("Enter the coefficient matrix");
 b=input("Enter the constant matrix(column form)");
 c=length(a);
-x=(1:c);
-for i=1:c
-    x(i)=input("Initial value of x");
-end
+x=zeros(c);
 n=input("Enter the number of iterations");
 k=1;
 while k<=n
