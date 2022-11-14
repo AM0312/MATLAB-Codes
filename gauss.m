@@ -1,26 +1,15 @@
-n=3;
-C=[4.63  -1.21 3.22;-3.07 5.48 2.11;1.26 3.11 4.57];
-b=[2.22 -3.17 5.11];
-B=b';
-A=[C B];
-x=zeros(1,n);
-determinant=det(C);
-if determinant==0
-    print('Not solvable as determinant is zero');
-else
-    for i=1:(n-1)
-        for j=(i+1):n
-            m=A(j,i)/A(i,i);
-            A(j,:)=A(j,:)-m*A(i,:);
-        end
+a=input("enter matrix");
+n=length(a)-1;
+x=zeros(n,1);
+%[10,-7,3,5,6;-6,8,-1,-4,5;3,1,4,11,2;5,-9,-2,4,7]
+for i=1:n-1
+    for j=i+1:n
+        m=a(j,i)/a(i,i);
+        a(j,:)=a(j,:)-m*a(i,:);
     end
-    disp(A);
-    for p=n:-1:1
-        sum1=0;
-        for r=2:n
-            sum1=sum1+A(p,r)*x(r);
-        end
-        x(p)=(A(p,n+1)-sum1)/A(p,p);
-    end
-    disp(x');
 end
+x(n)=a(n,n+1)/a(n,n);
+for i=(n-1):-1:1
+    x(i)=(a(i,n+1)-a(i,i+1:n)*x(i+1:n))/a(i,i);   
+end
+disp(x);
