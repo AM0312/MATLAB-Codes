@@ -1,10 +1,11 @@
-a=input("Enter the coefficient matrix");
-b=input("Enter the constant matrix(column form)");
+a=input("Enter the coefficient matrix:");
+b=input("Enter the constant matrix(column form):");
 c=length(a);
 x=zeros(c);
-n=input("Enter the number of iterations");
-k=1;
-while k<=n
+tol=input("Enter tolerance:");
+error=100;
+while error>tol
+    old=x;
     for i=1:c
         sum=b(i);
         for j=1:c
@@ -14,6 +15,6 @@ while k<=n
         end
         x(i)=sum/a(i,i);
     end
-    k=k+1;
+    error=max(0,abs(x(:)-old(:)));
 end
-disp(x(1:c))
+disp(x)

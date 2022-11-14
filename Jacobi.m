@@ -1,9 +1,8 @@
-n=3;
-C=[10 8 -3;2 10 1;3 -4 10];
-b=[2 3 5];
-B=b';
-x=[0;0;0];
-max_error=10^-4;
+C=input("Enter coefficient matrix:");
+B=input("Enter constants in column form:");
+n=length(B);
+x=zeros(n);
+max_error=input("Enter tolerance:");
 error=10;
 while(error>max_error)
     old=x;
