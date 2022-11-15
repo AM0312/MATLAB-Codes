@@ -1,15 +1,11 @@
 f=@(x)(x^2-5*x+6);
 g=@(x)(2*x-5);
-x=1;
+x=input("Enter initial approximation: ");
+tol=input("Enter tolerance: ");
 error=2;
-i=0;
-while(i<error)
+while(error>tol)
     a=x-(f(x)/g(x));
-    if(error>10^-4)
-        x=a;
-        error=abs(x-a);
-    else 
-        i=i+1;
-    end
+    error=abs(x-a);
+    x=a;
 end
 disp(x);
