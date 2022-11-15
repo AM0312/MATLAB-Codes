@@ -10,7 +10,7 @@ while(error>max_error)
         sum1 = 0;
         for j=1:n
             if (i~=j)
-                sum1=sum1+C(i,j)*x(j);
+                sum1=sum1+C(i,j)*old(j);
             end
         end
         x(i)=(-sum1+B(i))/C(i,i);

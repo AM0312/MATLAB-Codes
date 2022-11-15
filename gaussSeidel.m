@@ -15,6 +15,8 @@ while error>tol
         end
         x(i)=sum/a(i,i);
     end
-    error=max(0,abs(x(:)-old(:)));
+    for i=1:n
+        error=max(0,abs(x(i)-old(i)));
+    end
 end
 disp(x)
